@@ -1,0 +1,18 @@
+{% load i18n cms_tags %}
+<h2 class="header-b a">Our Testimonials</h2>
+	<div class="slider-a">
+     {% for c in child %}
+        <p class="quote-a">
+        <span class="title">{{ c.get_title }}</span>
+        <q>
+           {% for p in c.placeholders.all %}
+               {% render_placeholder  p %}
+           {% endfor %}
+        </q>
+        <span class="strong">{{ c.get_changed_by }}</span> - {{ c.get_changed_by }}</p>
+
+     {% endfor %}
+
+	</div>
+
+

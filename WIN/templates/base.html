@@ -1,0 +1,71 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>{% block title %}Worldwide Intelligence Network{% endblock title %}</title>
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="HandheldFriendly" content="true">
+      <meta name="MobileOptimized" content="320">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi">
+      <script type="text/javascript" src="{{ STATIC_URL }}javascript/head.js"></script>
+      <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}styles/screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}styles/print.css" media="print">
+      <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico">
+      
+      {% render_block "css" %}
+    <!--  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css"> -->
+  </head>
+  <body>
+    {% cms_toolbar %}    
+      <div id="root">
+          <header id="top">
+            <h1><a href="./" accesskey="h">Worldwide Intelligence Network</a></h1>
+            <nav id="skip">
+              <ul>
+                <li><a href="#nav" accesskey="n">Skip to navigation (n)</a></li>
+                <li><a href="#content" accesskey="c">Skip to content (c)</a></li>
+                <li><a href="#footer" accesskey="f">Skip to footer (f)</a></li>
+              </ul>
+            </nav>
+            <nav id="nav">
+              <ul>
+                {% show_menu 0 1 100 100 "menu.html" %}
+                <li class="a"><a accesskey="5" href="./">Contact us</a> <a class="tel" href="tel:18778855220">1 877 885 5220</a> <em>(5)</em></li>
+              </ul>
+            </nav>
+          </header>  
+                
+           
+        {% block content %}
+
+            {% block aside %}
+            {% endblock aside %}
+
+        {% endblock content %}
+        <footer id="footer">
+            {% block social_part %}
+                {% static_placeholder "footer" %}
+            {% endblock social_part %}
+
+            {% static_placeholder "footer_mid" %}
+            <ul class="gallery-b">
+                        <li><img src="{{ STATIC_URL }}images/logo/a.png" alt="Logo" width="30" height="55"></li>
+                        <li><img src="{{ STATIC_URL }}images/logo/b.png" alt="Logo" width="39" height="55"></li>
+                        <li><img src="{{ STATIC_URL }}images/logo/c.png" alt="Logo" width="40" height="55"></li>
+                        <li><img src="{{ STATIC_URL }}images/logo/d.png" alt="Logo" width="55" height="55"></li>
+            </ul>
+        </footer>
+
+        </div>
+    <script type="text/javascript">
+      head.load('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js','{{ STATIC_URL }}javascript/scripts.js','{{ STATIC_URL }}javascript/mobile.js')
+    </script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    {% render_block "js" %}
+  </body>
+</html>
+
